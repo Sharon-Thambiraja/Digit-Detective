@@ -61,7 +61,14 @@ export default function SmileGame(props) {
                 setInputAnswer(e.target.value);
               }}
             />
-            <Button type="submit" variant="contained">
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{
+                background: "GoldenRod",
+                "&:hover": { bgcolor: "DarkGoldenRod" },
+              }}
+            >
               Submit
             </Button>
           </Stack>

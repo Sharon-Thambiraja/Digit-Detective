@@ -1,28 +1,3 @@
-// const Layout1 = () => {
-//   return (
-//     <>
-//       <nav>
-//         <ul>
-//           <li>
-//             <Link to="/">Home</Link>
-//           </li>
-//           <li>
-//             <Link to="/blogs">Blogs</Link>
-//           </li>
-//           <li>
-//             <Link to="/Signup">Signup</Link>
-//           </li>
-//           <li>
-//             <Link to="/SmileGame">SmileGame</Link>
-//           </li>
-//         </ul>
-//       </nav>
-
-//       <Outlet />
-//     </>
-//   )
-// };
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -36,8 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { Outlet, Link } from "react-router-dom";
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
 const pages = [
   { title: "Home", url: "/" },
@@ -68,10 +43,13 @@ function Layout() {
 
   return (
     <>
-      <AppBar position="static">
+      {/* <AppBar position="static"> */}
+      <AppBar position="static" sx={{ background: "GoldenRod" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+            <EmojiEmotionsIcon
+              sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+            />
             <Typography
               variant="h6"
               noWrap
@@ -86,9 +64,7 @@ function Layout() {
                 color: "inherit",
                 textDecoration: "none",
               }}
-            >
-              LOGO
-            </Typography>
+            ></Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -118,16 +94,11 @@ function Layout() {
                 sx={{
                   display: { xs: "block", md: "none" },
                 }}
-              >
-                {/* {pages.map((page) => (
-                <MenuItem key={page["url"]} onClick={handleCloseNavMenu}>
-                  <Link to={page["url"]}><Typography textAlign="center">{page["title"]}</Typography></Link>
-                  
-                </MenuItem>
-              ))} */}
-              </Menu>
+              ></Menu>
             </Box>
-            <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+            <EmojiEmotionsIcon
+              sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+            />
             <Typography
               variant="h5"
               noWrap

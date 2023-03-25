@@ -36,7 +36,7 @@ export default function OddEvenGame(props) {
     } else {
       toast.error("Wrong Answer!", {
         position: "top-center",
-        autoClose: 2500,
+        autoClose: 1500,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -56,12 +56,16 @@ export default function OddEvenGame(props) {
         <CssBaseline />
         <h1> Number : {question}</h1>
 
-        <Stack spacing={2} direction="row">
+        <Stack spacing={7} direction="row">
           <Button
             type="submit"
             variant="contained"
             onClick={() => {
               submitAnswer("Odd");
+            }}
+            sx={{
+              background: "GoldenRod",
+              "&:hover": { bgcolor: "DarkGoldenRod" },
             }}
           >
             Odd
@@ -71,6 +75,10 @@ export default function OddEvenGame(props) {
             variant="contained"
             onClick={() => {
               submitAnswer("Even");
+            }}
+            sx={{
+              background: "GoldenRod",
+              "&:hover": { bgcolor: "DarkGoldenRod" },
             }}
           >
             Even
