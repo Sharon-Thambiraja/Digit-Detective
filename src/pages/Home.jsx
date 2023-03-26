@@ -18,7 +18,7 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="http://localhost:3000/">
         Digit Detective
       </Link>{" "}
       {new Date().getFullYear()}
@@ -41,7 +41,7 @@ export default function Home() {
             backgroundSize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            height: "650px",
+            height: "665px",
           }}
         >
           <Typography
@@ -77,7 +77,7 @@ export default function Home() {
               href="/Game"
               sx={{ width: "15%", mb: 1 }}
             >
-              Play Game
+              Play As Guest
             </Button>
             <Button
               variant="contained"

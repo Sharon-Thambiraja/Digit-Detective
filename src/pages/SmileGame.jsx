@@ -6,6 +6,8 @@ import axios from "axios";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Paper from "@mui/material/Paper";
+import image from "../Assests/img/bg1.png";
 
 const theme = createTheme();
 
@@ -45,34 +47,51 @@ export default function SmileGame(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <center>
-          <img src={img} width="800" />
-        </center>
-        <form onSubmit={submitForm}>
-          <Stack spacing={2} direction="row">
-            <TextField
-              label="Enter answer"
-              type="number"
-              variant="outlined"
-              value={inputAnswer}
-              onChange={(e) => {
-                setInputAnswer(e.target.value);
-              }}
-            />
-            <Button
-              type="submit"
-              variant="contained"
-              sx={{
-                background: "GoldenRod",
-                "&:hover": { bgcolor: "DarkGoldenRod" },
-              }}
-            >
-              Submit
-            </Button>
-          </Stack>
-        </form>
+      <Container component="main" maxWidth="xxl">
+        <Paper
+          elevation={20}
+          sx={{
+            p: 4,
+            backgroundImage: `url(${image})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          <CssBaseline />
+
+          <center>
+            <img src={img} width="300" />
+          </center>
+          <form onSubmit={submitForm}>
+            <Stack spacing={7} direction="row">
+              <TextField
+                label="Enter answer"
+                type="number"
+                variant="outlined"
+                value={inputAnswer}
+                onChange={(e) => {
+                  setInputAnswer(e.target.value);
+                }}
+                sx={{
+                  bgcolor: "white",
+                }}
+              />
+              <Button
+                type="submit"
+                variant="contained"
+                sx={{
+                  background: "Primary",
+                  "&:hover": { bgcolor: "Secondary" },
+                }}
+              >
+                Submit
+              </Button>
+            </Stack>
+          </form>
+        </Paper>
       </Container>
     </ThemeProvider>
   );
