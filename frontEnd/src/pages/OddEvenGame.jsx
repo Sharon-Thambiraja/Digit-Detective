@@ -37,10 +37,12 @@ export default function OddEvenGame(props) {
     }, 1000);
 
     if (timeLeft === 0) {
+      console.log("Tessssttttt");
       clearInterval(intervalId);
-      setTimeLeft(10);
-      props.setCounter((prev) => prev + 1);
-      generateNumber();
+      props.setGameOver(true);
+      // setTimeLeft(10);
+      // props.setCounter((prev) => prev + 1);
+      // generateNumber();
     }
 
     return () => clearInterval(intervalId);

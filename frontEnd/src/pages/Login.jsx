@@ -13,10 +13,14 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import image from "../Assests/img/smile.png";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
 export default function Blog() {
+  let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -24,7 +28,19 @@ export default function Blog() {
       email: data.get("email"),
       password: data.get("password"),
     });
+    axios
+      .post("http://localhost:8080/api/auth/", {
+        email: data.get("email"),
+        password: data.get("password"),
+      })
+      .then((response) => {
+        localStorage.setItem("email", data.get("email"));
+        localStorage.setItem("token", response.data.data);
+        console.log(response);
+        navigate("/Game");
+      });
   };
+
   return (
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={{ height: "100vh" }}>
