@@ -31,26 +31,9 @@ export default function OddEvenGame(props) {
     generateNumber();
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setTimeLeft((prev) => prev - 1);
-    }, 1000);
-
-    if (timeLeft === 0) {
-      console.log("Tessssttttt");
-      clearInterval(intervalId);
-      props.setGameOver(true);
-      // setTimeLeft(10);
-      // props.setCounter((prev) => prev + 1);
-      // generateNumber();
-    }
-
-    return () => clearInterval(intervalId);
-  }, [timeLeft]);
-
   const submitAnswer = (userAnswer) => {
     console.log(userAnswer);
-    if (userAnswer == answer) {
+    if (userAnswer === answer) {
       props.setScore((prev) => prev + 10);
     } else {
       toast.error("Wrong Answer!", {
@@ -70,18 +53,17 @@ export default function OddEvenGame(props) {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Container component="main" maxWidth="xs"> */}
       <Container component="main" maxWidth="xxl">
         <Paper
           elevation={5}
           sx={{
             p: 4,
             backgroundImage: `url(${image})`,
-            backgroundSize: "cover",
+            backgroundsize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            height: "100%",
-            width: "100%",
+            height: "30%",
+            width: "25%",
           }}
         >
           <ToastContainer />

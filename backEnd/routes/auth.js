@@ -23,6 +23,19 @@ router.post("/", async (req, res) => {
 		const token = user.generateAuthToken();
 		res.status(200).send({ data: token, message: "logged in successfully" });
 	} catch (error) {
+		console.log(error);
+		res.status(500).send({ message: "Internal Server Error" });
+	}
+});
+
+router.post("/user", async (req, res) => {
+	try {
+		const user = await User.findOne({ email: req.body.email });
+		if (!user)
+			return res.status(404).send({ message: "User not found" });
+
+		res.status(200).send({ data: user, message: "User Retrieved Successfully" });
+	} catch (error) {
 		res.status(500).send({ message: "Internal Server Error" });
 	}
 });

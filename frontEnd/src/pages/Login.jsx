@@ -36,7 +36,6 @@ export default function Blog() {
       .then((response) => {
         localStorage.setItem("email", data.get("email"));
         localStorage.setItem("token", response.data.data);
-        console.log(response);
         navigate("/Game");
       });
   };
@@ -57,7 +56,7 @@ export default function Blog() {
               t.palette.mode === "light"
                 ? t.palette.grey[50]
                 : t.palette.grey[900],
-            backgroundSize: "cover",
+            backgroundsize: "cover",
             backgroundPosition: "center",
           }}
         />
@@ -103,10 +102,6 @@ export default function Blog() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
@@ -121,25 +116,10 @@ export default function Blog() {
                 Sign In
               </Button>
               <Grid container>
-                <Grid item xs>
-                  <Link
-                    href="#"
-                    variant="body2"
-                    sx={{
-                      color: "GoldenRod",
-                      textDecorationColor: "GoldenRod",
-                      "&:hover": {
-                        color: "DarkGoldenRod",
-                        textDecorationColor: "DarkGoldenRod",
-                      },
-                    }}
-                  >
-                    Forgot password?
-                  </Link>
-                </Grid>
+                <Grid item xs></Grid>
                 <Grid item>
                   <Link
-                    href="#"
+                    href="Signup"
                     variant="body2"
                     sx={{
                       color: "GoldenRod",

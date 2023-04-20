@@ -13,18 +13,24 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Outlet, Link } from "react-router-dom";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const pages = [
   { title: "Home", url: "/" },
   { title: "Login", url: "/login" },
   { title: "Sign Up", url: "/Signup" },
   { title: "Game", url: "/Game" },
+  { title: "User", url: "/User" },
 ];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const settings = ["User", "Logout"];
 
 function Layout() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [email, setEmail] = React.useState("");
+
+  let navigate = useNavigate();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,6 +46,23 @@ function Layout() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleClickUserMenu = (event) => {
+    // console.log(event);
+    let menuItem = event.target.innerText;
+    console.log(menuItem);
+    if (menuItem == "Logout") {
+      localStorage.removeItem("email");
+      localStorage.removeItem("token");
+      navigate("login");
+    } else if (menuItem == "User") {
+      navigate("User");
+    }
+  };
+
+  React.useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+  });
 
   return (
     <>
@@ -64,7 +87,9 @@ function Layout() {
                 color: "inherit",
                 textDecoration: "none",
               }}
-            ></Typography>
+            >
+              {email}
+            </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
@@ -134,7 +159,10 @@ function Layout() {
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                  <Avatar
+                    alt={email ? email.toUpperCase() : "R"}
+                    src="/static/images/avatar/2.jpg"
+                  />
                 </IconButton>
               </Tooltip>
               <Menu
@@ -154,7 +182,7 @@ function Layout() {
                 onClose={handleCloseUserMenu}
               >
                 {settings.map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <MenuItem key={setting} onClick={handleClickUserMenu}>
                     <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}
@@ -168,5 +196,35 @@ function Layout() {
     </>
   );
 }
+
+// function App() {
+//   const [loggedIn, setLoggedIn] = useState(true);
+//   const navigate = useNavigate();
+//   navigate("/home");
+
+//   const handleLogout = () => {
+//     // Remove authentication token or session data from state or storage
+//     setLoggedIn(false);
+
+//     // Redirect to login page
+//     navigate.push("/login");
+//   };
+
+//   return (
+//     <div>
+//       {loggedIn ? (
+//         <div>
+//           <h1>Welcome to the App</h1>
+//           <button onClick={handleLogout}>Logout</button>
+//         </div>
+//       ) : (
+//         <div>
+//           <h1>Please login to access the App</h1>
+//           <button onClick={() => navigate.push("/login")}>Login</button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
 
 export default Layout;

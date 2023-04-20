@@ -53,11 +53,11 @@ export default function SmileGame(props) {
           sx={{
             p: 4,
             backgroundImage: `url(${image})`,
-            backgroundSize: "cover",
+            backgroundsize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            height: "100%",
-            width: "100%",
+            height: "25%",
+            width: "25%",
           }}
         >
           <CssBaseline />
