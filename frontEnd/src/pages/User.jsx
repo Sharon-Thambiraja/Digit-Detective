@@ -1,28 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@mui/material/styles";
 import { Container, Avatar, Typography, Button, Paper } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import image from "../Assests/img/UPBG.png";
 
 import axios from "axios";
-
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     display: "flex",
-//     flexDirection: "column",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     paddingTop: theme.spacing(5),
-//     paddingBottom: theme.spacing(5),
-//   },
-//   avatar: {
-//     width: theme.spacing(12),
-//     height: theme.spacing(12),
-//     marginBottom: theme.spacing(2),
-//   },
-//   button: {
-//     marginTop: theme.spacing(2),
-//   },
-// }));
 
 const theme = createTheme();
 
@@ -59,8 +40,8 @@ function User() {
       >
         <Paper
           sx={{
-            background: "#daa52085",
-            padding: "20px",
+            background: `url(${image})`,
+            padding: "50px",
             width: "80%",
             margin: "auto",
           }}
@@ -71,12 +52,10 @@ function User() {
               height: 200,
               marginBottom: 2,
               margin: "auto",
-              background: "rgb(218 165 32)",
-              padding: "1.2rem",
             }}
             align="center"
             alt="User Profile Picture"
-            src="https://cdn-icons-png.flaticon.com/512/16/16363.png?w=740&t=st=1681975170~exp=1681975770~hmac=eac6edb109ba01997287ab1670b0326ae8676e5854d53419ef7a1e504ac346ba"
+            src="https://cdn.pixabay.com/photo/2019/08/11/18/59/icon-4399701_960_720.png"
           />
           <Container
             sx={{
@@ -84,7 +63,12 @@ function User() {
             }}
             className="space-top"
           >
-            <Typography variant="h4" align="center" marginTop="1.5rem">
+            <Typography
+              variant="h4"
+              align="center"
+              marginTop="1.5rem"
+              color="white"
+            >
               Name: {name}
             </Typography>
             <Typography
@@ -92,6 +76,7 @@ function User() {
               align="center"
               gutterBottom
               marginTop="1.5rem"
+              color="white"
             >
               Email: {email}
             </Typography>
@@ -100,6 +85,7 @@ function User() {
               align="center"
               gutterBottom
               marginTop="1.5rem"
+              color="white"
             >
               Points: {score}
             </Typography>

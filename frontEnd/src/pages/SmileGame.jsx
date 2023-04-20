@@ -56,7 +56,7 @@ export default function SmileGame(props) {
             backgroundsize: "cover",
             backgroundRepeat: "no-repeat",
             backgroundPosition: "center",
-            height: "25%",
+            height: "23%",
             width: "25%",
           }}
         >

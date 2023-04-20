@@ -10,12 +10,7 @@ import Stack from "@mui/material/Stack";
 
 function Copyright(props) {
   return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
+    <Typography variant="body2" color="White" align="center" {...props}>
       {"Copyright © "}
       <Link color="inherit" href="http://localhost:3000/">
         Digit Detective
@@ -62,7 +57,7 @@ export default function Home() {
           component="h1"
           fontFamily="Freestyle Script"
           fontWeight="bold"
-          color="DarkBrown"
+          color="White"
           textAlign="right"
         >
           Welcome to Digit Detective
@@ -72,6 +67,7 @@ export default function Home() {
           component="h3"
           fontFamily="sans-serif"
           fontWeight="bold"
+          color="white"
           fontSize={18}
           textAlign="right"
         >
